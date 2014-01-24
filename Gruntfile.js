@@ -41,7 +41,9 @@ module.exports = function(grunt) {
           'loop': 0,
           'show': 1
         },
-        files: 'test/fixtures/*.js',
+        files: [{
+          src:['test/fixtures/ok.js']
+        }],
       }
     },
 
@@ -59,12 +61,11 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-nodeunit');
-
   // Whenever the "test" task is run, first clean the "tmp" dir, then run this
   // plugin's task(s), then test the result.
-  grunt.registerTask('test', ['clean', 'testardo', 'nodeunit']);
+  grunt.registerTask('test', ['clean', 'testardo']);
 
   // By default, lint and run all tests.
-  grunt.registerTask('default', ['jshint', 'test']);
+  grunt.registerTask('default', ['jshint', 'testardo']);
 
 };

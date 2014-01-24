@@ -24,7 +24,6 @@ var grunt = require('grunt');
 
 exports.testardo = {
   run: function(test) {
-    console.log(test);
     test.done();
   }
 };
