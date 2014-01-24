@@ -35,14 +35,14 @@ module.exports = function(grunt) {
           'ip': '0.0.0.0',
           'port': 7357,
           'host': 'google.com',
-          'mirror': 80,
+          'mirror': 8888,
           'timeout': 30000,
           'email': 'me@you.us',
           'loop': 0,
           'show': 1
         },
         files: [{
-          src:['test/fixtures/ok.js']
+          src:['test/fixtures/*.js']
         }],
       }
     },

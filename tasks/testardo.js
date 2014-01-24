@@ -11,26 +11,35 @@
 module.exports = function(grunt) {
   // Please see the Grunt documentation for more information regarding task
   // creation: http://gruntjs.com/creating-tasks
-  var exec = require('child_process').exec,
+  var spawn = require('child_process').spawn,
     path = require('path'),
     sys = require('sys');
 
   grunt.registerMultiTask('testardo', 'Testing the files with testardo', function() {
     var done = this.async(),
-      files = this.filesSrc.join(' '),
-      options = '';
+      files = this.filesSrc,
+      options = [],
+      process;
     // get the options
     Object.keys(this.data.options).forEach(function(key) {
-      options += '--' + key + '=' + this.data.options[key] + ' ';
+      options.push('--' + key + '=' + this.data.options[key]);
     }.bind(this));
 
+    console.log();
+
     // trigger the testardo shell command
-    exec(__dirname + '/../node_modules/.bin/testardo ' + options + files, function(error, stdout, stderr) {
-      sys.print('stdout: ' + stdout);
-      sys.print('stderr: ' + stderr);
-      if (error !== null) {
-        console.log('exec error: ' + error);
-      }
+    process = spawn(__dirname + '/../node_modules/.bin/testardo', options.concat(files), done);
+
+    process.stdout.on('data', function(data) {
+      console.log('stdout:' + data);
+    });
+
+    process.stderr.on('data', function(data) {
+      console.log('stderr:' + data);
+    });
+
+    process.stdin.on('data', function(data) {
+      console.log('stdin:' + data);
     });
   });
 };
