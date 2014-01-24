@@ -29,16 +29,15 @@ module.exports = function(grunt) {
     process = spawn( __dirname + '/../node_modules/.bin/testardo',options.concat(files));
 
     process.stdout.on('data', function(data) {
-      console.log('stdout:' + data);
-      done();
+      grunt.log.subhead('Please connect your device to following url to run the tests:');
+      grunt.log.oklns(String(data).replace(/([a-z]{2}[0-9]:)/,''));
     });
-
+    // listen all the testardo errors
     process.stderr.on('data', function(data) {
-      console.log('stderr:' + data);
-    });
-
-    process.stdin.on('data', function(data) {
-      console.log('stdin:' + data);
+      grunt.log.errorlns(data);
+      grunt.fail.fatal({
+        message:'Damn it! It looks like there was an error somewhere'
+      });
     });
   });
 };

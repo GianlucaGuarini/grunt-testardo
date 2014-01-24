@@ -32,17 +32,19 @@ module.exports = function(grunt) {
     testardo: {
       run: {
         options: {
-          'ip': '0.0.0.0',
-          'port': 7357,
+          // 'ip': '0.0.0.0',
+          // 'port': 7357,
           'host': 'google.com',
-          'mirror': 8888,
-          'timeout': 30000,
-          'email': 'me@you.us',
+          // 'mirror': 8888,
+          // 'timeout': 30000,
+          // 'email': 'me@you.us',
           'loop': 0,
-          'show': 1
+          // 'show': 1
         },
         files: [{
-          src:['test/fixtures/*.js']
+          src:[
+            'test/fixtures/*.js'
+          ]
         }],
       }
     },
