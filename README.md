@@ -2,7 +2,7 @@
 
 # grunt-testardo
 
-> Grunt wrapper to [testardo](https://github.com/WebReflection/testardo)
+> grunt plugin to test your project using [testardo](https://github.com/WebReflection/testardo)
 
 ## Getting Started
 This plugin requires Grunt `~0.4.2`
@@ -83,7 +83,7 @@ grunt.initConfig({
       'show': 1
     },
     files: {
-      'dest/default_options': ['src/testing', 'src/123'],
+      src: ['tests/*.js'],
     },
   },
 });

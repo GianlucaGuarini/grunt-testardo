@@ -25,13 +25,12 @@ module.exports = function(grunt) {
       options.push('--' + key + '=' + this.data.options[key]);
     }.bind(this));
 
-    console.log();
-
     // trigger the testardo shell command
-    process = spawn(__dirname + '/../node_modules/.bin/testardo', options.concat(files), done);
+    process = spawn( __dirname + '/../node_modules/.bin/testardo',options.concat(files));
 
     process.stdout.on('data', function(data) {
       console.log('stdout:' + data);
+      done();
     });
 
     process.stderr.on('data', function(data) {
