@@ -71,14 +71,8 @@ if 1 or true, it shows all successful attempts
 grunt.initConfig({
   testardo: {
     options: {
-      'ip': '0.0.0.0',
-      'port': 7357,
-      'host': 'localhost',
-      'mirror': 80,
-      'timeout': 30000,
-      'email': 'me@you.us',
-      'loop': 1,
-      'show': 1
+      'host': 'google.com',
+      'loop': 0
     },
     files: {
       src: ['tests/*.js'],

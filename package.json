@@ -1,13 +1,9 @@
 {
   "name": "grunt-testardo",
-  "description": "The best Grunt plugin ever.",
+  "description": "grunt plugin to test your project using testardo",
   "version": "0.0.1",
   "homepage": "https://github.com/gianlucaguarini/grunt-testardo",
-  "author": {
-    "name": "Gianluca Guarini",
-    "email": "gianluca.guarini@gmail.com",
-    "url": "gianlucaguarini.com"
-  },
+  "author": "Gianluca Guarini <gianluca.guarini@gmail.com> (gianlucaguarini.com)",
   "repository": {
     "type": "git",
     "url": "git://github.com/gianlucaguarini/grunt-testardo.git"
@@ -39,5 +35,15 @@
   },
   "keywords": [
     "gruntplugin"
-  ]
+  ],
+  "main": "Gruntfile.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {
+    "grunt": "~0.4.2",
+    "grunt-contrib-jshint": "~0.6.5",
+    "testardo": "~0.1.2"
+  },
+  "license": "MIT"
 }
