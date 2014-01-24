@@ -1,7 +1,7 @@
 {
   "name": "grunt-testardo",
   "description": "grunt plugin to test your project using testardo",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "homepage": "https://github.com/gianlucaguarini/grunt-testardo",
   "author": "Gianluca Guarini <gianluca.guarini@gmail.com> (gianlucaguarini.com)",
   "repository": {
