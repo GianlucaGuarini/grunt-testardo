@@ -16,7 +16,7 @@ module.exports = {
         sandbox.onload = function(sandbox, window, document) {
           var href = sandbox.query(
             // Kindle Fire HD Silk browser has very outdated version of Google
-            sandbox.navigator.kind == 'Silk' ?
+            sandbox.navigator.kind === 'Silk' ?
               'div > a:first-child' : 'h3.r > a'
           ).href;
           // clean up the link if it's a query
@@ -34,7 +34,7 @@ module.exports = {
           sandbox.dispatch(node, 'click');
 
           // iPad will not change href, no onload will be fired
-          if (sandbox.navigator.kind == 'iPad') {
+          if (sandbox.navigator.kind === 'iPad') {
             setTimeout(
               sandbox.onload, 2000,
               sandbox, window, document
