@@ -25,12 +25,14 @@ In your project's Gruntfile, add a section named `testardo` to the data object p
 ```js
 grunt.initConfig({
   testardo: {
-    options: {
-      // Task-specific options go here.
-    },
-    your_target: {
-      // Target-specific file lists and/or options go here.
-    },
+    run: {
+      options: {
+        // Task-specific options go here.
+      },
+      your_target: {
+        // Target-specific file lists and/or options go here.
+      }
+    }
   },
 });
 ```
@@ -70,13 +72,15 @@ if 1 or true, it shows all successful attempts
 ```js
 grunt.initConfig({
   testardo: {
-    options: {
-      'host': 'google.com',
-      'loop': 0
-    },
-    files: {
-      src: ['tests/*.js'],
-    },
+    run: {
+      options: {
+        'host': 'google.com',
+        'loop': 0
+      },
+      files: {
+        src: ['tests/*.js'],
+      }
+    }
   },
 });
 ```
