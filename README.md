@@ -1,5 +1,3 @@
-# This plugin is under development it's not yet ready!
-
 # grunt-testardo
 
 > grunt plugin to test your project using [testardo](https://github.com/WebReflection/testardo)
