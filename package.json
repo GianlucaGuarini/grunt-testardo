@@ -28,7 +28,8 @@
     "grunt-contrib-clean": "~0.4.0",
     "grunt-contrib-nodeunit": "~0.2.0",
     "grunt": "~0.4.2",
-    "testardo": "~0.1.1"
+    "testardo": "~0.1.1",
+    "grunt-cli": "~0.1.9"
   },
   "peerDependencies": {
     "grunt": "~0.4.2"
