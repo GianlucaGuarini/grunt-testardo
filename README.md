@@ -1,6 +1,8 @@
+# This plugin is under development it's not yet ready!
+
 # grunt-testardo
 
-> The best Grunt plugin ever.
+> Grunt wrapper to [testardo](https://github.com/WebReflection/testardo)
 
 ## Getting Started
 This plugin requires Grunt `~0.4.2`
@@ -37,43 +39,48 @@ grunt.initConfig({
 
 ### Options
 
-#### options.separator
-Type: `String`
-Default value: `',  '`
+[testardo options](https://github.com/WebReflection/testardo/blob/master/src/server/how-to.js)
 
-A string value that is used to do something with whatever.
+#### ip
+the ip address to use. by default reachable through the network
 
-#### options.punctuation
-Type: `String`
-Default value: `'.'`
+#### port
+which port should be used to run tests. i.e. http://0.0.0.0:7357/
 
-A string value that is used to do something else with whatever else.
+#### host
+the host name. it could be a remote address too
+
+#### mirror
+the port to mirror in the host. The usual/default webserver port
+
+#### timeout
+global test timeout in milliseconds
+
+#### email
+if specified, sends an email with errors/fixes notifications
+
+#### loop
+if 0 or false, it exists after first execution
+
+#### show
+if 1 or true, it shows all successful attempts
+
 
 ### Usage Examples
 
-#### Default Options
-In this example, the default options are used to do something with whatever. So if the `testing` file has the content `Testing` and the `123` file had the content `1 2 3`, the generated result would be `Testing, 1 2 3.`
-
-```js
-grunt.initConfig({
-  testardo: {
-    options: {},
-    files: {
-      'dest/default_options': ['src/testing', 'src/123'],
-    },
-  },
-});
-```
-
-#### Custom Options
-In this example, custom options are used to do something else with whatever else. So if the `testing` file has the content `Testing` and the `123` file had the content `1 2 3`, the generated result in this case would be `Testing: 1 2 3 !!!`
 
 ```js
 grunt.initConfig({
   testardo: {
     options: {
-      separator: ': ',
-      punctuation: ' !!!',
+      'ip': '0.0.0.0',
+      'port': 7357,
+      'host': 'localhost',
+      'mirror': 80,
+      'timeout': 30000,
+      'email': 'me@you.us',
+      'loop': 1,
+      'show': 1
     },
     files: {
       'dest/default_options': ['src/testing', 'src/123'],
@@ -87,3 +94,5 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 
 ## Release History
 _(Nothing yet)_
+
+
