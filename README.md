@@ -1,4 +1,4 @@
-# grunt-testardo
+# grunt-testardo [![Build Status](https://travis-ci.org/GianlucaGuarini/grunt-testardo.png?branch=master)](https://travis-ci.org/GianlucaGuarini/grunt-testardo)
 
 > grunt plugin to test your project using [testardo](https://github.com/WebReflection/testardo)
 
