@@ -21,21 +21,17 @@ module.exports = function(grunt) {
    * @return { Array }
    */
   var buildOptions = function(customOptions) {
-    var options = [];
-
-    Object.keys(customOptions).forEach(function(key) {
-      options.push('--' + key + '=' + customOptions[key]);
-    }.bind(this));
-
-    return options;
+    return Object.keys(customOptions).map(function(key) {
+      return '--' + key + '=' + customOptions[key];
+    });
   };
 
   grunt.registerMultiTask('testardo', 'Testing the files with testardo', function() {
     var done = this.async(),
       files = this.filesSrc,
+      // get the options
       options = buildOptions(this.data.options),
       process;
-    // get the options
 
     // check the files
     files.filter(function(filepath) {
@@ -62,7 +58,9 @@ module.exports = function(grunt) {
     });
 
     process.stdout.on('data', function(data) {
+      // testardo was not able to trigger the tests
       if (/testardo/gi.test(data)) {
+        grunt.log.write(data);
         done(false);
       } else {
         grunt.log.subhead('Please connect your device to following url to run the tests:');
