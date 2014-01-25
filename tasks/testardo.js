@@ -15,18 +15,43 @@ module.exports = function(grunt) {
     path = require('path'),
     sys = require('sys');
 
+  /**
+   * Build the options array
+   * @param  { Object } customOptions options passed via grunt
+   * @return { Array }
+   */
+  var buildOptions = function(customOptions) {
+    var options = [];
+
+    Object.keys(customOptions).forEach(function(key) {
+      options.push('--' + key + '=' + customOptions[key]);
+    }.bind(this));
+
+    return options;
+  };
+
   grunt.registerMultiTask('testardo', 'Testing the files with testardo', function() {
     var done = this.async(),
       files = this.filesSrc,
-      options = [],
+      options = buildOptions(this.data.options),
       process;
     // get the options
-    Object.keys(this.data.options).forEach(function(key) {
-      options.push('--' + key + '=' + this.data.options[key]);
-    }.bind(this));
 
+    // check the files
+    files.filter(function(filepath) {
+      // Remove nonexistent files (it's up to you to filter or warn here).
+      if (!grunt.file.exists(filepath)) {
+        grunt.log.warn('Source file "' + filepath + '" not found.');
+        return false;
+      } else {
+        return true;
+      }
+    });
     // trigger the testardo shell command
-    process = spawn( __dirname + '/../node_modules/.bin/testardo',options.concat(files));
+    process = grunt.util.spawn( {
+      cmd:__dirname + '/../node_modules/.bin/testardo',
+      args:options.concat(files)
+    });
 
     process.stdout.on('data', function(data) {
       grunt.log.subhead('Please connect your device to following url to run the tests:');
@@ -34,7 +59,9 @@ module.exports = function(grunt) {
     });
     // listen all the testardo errors
     process.stderr.on('data', function(data) {
-      grunt.log.errorlns(data);
+      if (data.length){
+        grunt.log.errorlns(data);
+      }
       grunt.fail.fatal({
         message:'Damn it! It looks like there was an error somewhere'
       });

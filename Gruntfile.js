@@ -37,8 +37,10 @@ module.exports = function(grunt) {
           // 'show': 1
         },
         files: [{
+          expand:true,
+          cwd:'tests/',
           src:[
-            'tests/*.js'
+            '*.js'
           ]
         }],
       }
