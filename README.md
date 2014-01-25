@@ -92,5 +92,7 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 
 ### v0.0.3
  - better error handling
+### v0.0.4
+ - testardo version update
 
 
