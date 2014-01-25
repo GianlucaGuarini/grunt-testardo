@@ -47,23 +47,33 @@ module.exports = function(grunt) {
         return true;
       }
     });
+
+    // check the files
+    if (!files.length) {
+      grunt.fail.fatal({
+        message: 'Testardo has received no files to test. Check again your paths'
+      });
+    }
+
     // trigger the testardo shell command
-    process = grunt.util.spawn( {
-      cmd:__dirname + '/../node_modules/.bin/testardo',
-      args:options.concat(files)
+    process = grunt.util.spawn({
+      cmd: __dirname + '/../node_modules/.bin/testardo',
+      args: options.concat(files)
     });
 
     process.stdout.on('data', function(data) {
-      grunt.log.subhead('Please connect your device to following url to run the tests:');
-      grunt.log.oklns(String(data).replace(/([a-z]{2}[0-9]:)/,''));
+      if (/testardo/gi.test(data)) {
+        done(false);
+      } else {
+        grunt.log.subhead('Please connect your device to following url to run the tests:');
+        grunt.log.oklns(String(data).replace(/([a-z]{2}[0-9]:)/, ''));
+      }
     });
     // listen all the testardo errors
     process.stderr.on('data', function(data) {
-      if (data.length){
-        grunt.log.errorlns(data);
-      }
+      grunt.log.errorlns(data);
       grunt.fail.fatal({
-        message:'Damn it! It looks like there was an error somewhere'
+        message: 'Damn it! It looks like there was an error somewhere'
       });
     });
   });
