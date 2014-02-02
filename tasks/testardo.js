@@ -9,18 +9,15 @@
 'use strict';
 
 module.exports = function(grunt) {
-  // Please see the Grunt documentation for more information regarding task
-  // creation: http://gruntjs.com/creating-tasks
-  var spawn = require('child_process').spawn,
-    path = require('path'),
-    sys = require('sys');
-
   /**
    * Build the options array
    * @param  { Object } customOptions options passed via grunt
    * @return { Array }
    */
   var buildOptions = function(customOptions) {
+    if (customOptions.https === false)
+      delete customOptions.https;
+
     return Object.keys(customOptions).map(function(key) {
       return '--' + key + '=' + customOptions[key];
     });
@@ -55,6 +52,8 @@ module.exports = function(grunt) {
     process = grunt.util.spawn({
       cmd: __dirname + '/../node_modules/.bin/testardo',
       args: options.concat(files)
+    },function(){
+      done(true);
     });
 
     process.stdout.on('data', function(data) {

@@ -41,11 +41,15 @@ grunt.initConfig({
 
 [testardo options](https://github.com/WebReflection/testardo/blob/master/src/server/how-to.js)
 
+
 #### ip
 the ip address to use. by default reachable through the network
 
 #### port
 which port should be used to run tests. i.e. http://0.0.0.0:7357/
+
+#### https (false by default)
+if set to true it will proxy the page to test using the https protocol
 
 #### host
 the host name. it could be a remote address too
@@ -90,10 +94,11 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 
 ## Release History
 
+### v0.0.4
+ - testardo version update
+
 ### v0.0.3
  - better error handling
 
-### v0.0.4
- - testardo version update
 
 

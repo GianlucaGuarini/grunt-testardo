@@ -22,30 +22,39 @@ module.exports = function(grunt) {
         jshintrc: '.jshintrc',
       },
     },
-
     // Configuration to be run (and then tested).
     testardo: {
-      run: {
+      google: {
         options: {
-          // 'ip': '0.0.0.0',
-          // 'port': 7357,
           'host': 'google.com',
-          // 'mirror': 8888,
-          // 'timeout': 30000,
-          // 'email': 'me@you.us',
           'loop': 0,
-          // 'show': 1
         },
         files: [{
-          expand:true,
-          cwd:'tests/',
-          src:[
-            '*.js'
+          expand: true,
+          cwd: 'tests/',
+          src: [
+            'google-search.js'
           ]
-        }],
+        }]
+      },
+      // TODO: check the twitter bootsrap
+      // this will come soon
+      //
+      twbs: {
+        options: {
+          'host': 'twbs.github.io',
+          'https': true,
+          'loop': 0,
+        },
+        files: [{
+          expand: true,
+          cwd: 'tests/',
+          src: [
+            'twitter-bootstrap.js'
+          ]
+        }]
       }
     }
-
   });
 
   // Actually load this plugin's task(s).
@@ -57,6 +66,6 @@ module.exports = function(grunt) {
   grunt.registerTask('test', ['jshint']);
 
   // By default, lint and run all tests.
-  grunt.registerTask('default', ['jshint', 'testardo']);
+  grunt.registerTask('default', ['jshint', 'testardo:google']);
 
 };

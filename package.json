@@ -1,7 +1,7 @@
 {
   "name": "grunt-testardo",
   "description": "grunt plugin to test your project using testardo",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "homepage": "https://github.com/gianlucaguarini/grunt-testardo",
   "author": "Gianluca Guarini <gianluca.guarini@gmail.com> (gianlucaguarini.com)",
   "repository": {
@@ -42,7 +42,7 @@
   "dependencies": {
     "grunt": "~0.4.2",
     "grunt-contrib-jshint": "~0.6.5",
-    "testardo": "~0.1.2"
+    "testardo": "~0.2.0"
   },
   "license": "MIT"
 }
