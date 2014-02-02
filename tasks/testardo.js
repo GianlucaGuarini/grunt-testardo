@@ -15,8 +15,9 @@ module.exports = function(grunt) {
    * @return { Array }
    */
   var buildOptions = function(customOptions) {
-    if (customOptions.https === false)
+    if (customOptions.https === false) {
       delete customOptions.https;
+    }
 
     return Object.keys(customOptions).map(function(key) {
       return '--' + key + '=' + customOptions[key];
