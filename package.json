@@ -42,7 +42,7 @@
   "dependencies": {
     "grunt": "~0.4.2",
     "grunt-contrib-jshint": "~0.6.5",
-    "testardo": "~0.2.0"
+    "testardo": "~0.2.2"
   },
   "license": "MIT"
 }
