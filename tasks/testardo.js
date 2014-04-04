@@ -31,7 +31,7 @@ module.exports = function(grunt) {
       files = this.filesSrc,
       fail = debounce(function() {
         grunt.fail.fatal({
-          message: 'Damn it! Your test failed.. tt looks like there is an error somewhere'
+          message: 'Damn it! Your test failed.. it looks like there is an error somewhere'
         });
       }, 500, false),
       // get the options
