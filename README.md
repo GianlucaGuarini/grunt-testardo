@@ -94,7 +94,7 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 
 ## Release History
 
-### v0.0.8
+### v0.1.0
  - testardo version update 0.2.6
  - better error messages
 
