@@ -94,6 +94,13 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 
 ## Release History
 
+### v0.0.7
+ - testardo version update 0.2.6
+ - better error messages
+
+### v0.0.7
+ - testardo version update 0.2.5
+
 ### v0.0.6
  - testardo version update 0.2.2
 

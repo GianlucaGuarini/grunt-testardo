@@ -37,14 +37,11 @@ module.exports = function(grunt) {
           ]
         }]
       },
-      // TODO: check the twitter bootsrap
-      // this will come soon
-      //
       twbs: {
         options: {
           'host': 'twbs.github.io',
           'https': true,
-          'loop': 0,
+          'loop': 0
         },
         files: [{
           expand: true,

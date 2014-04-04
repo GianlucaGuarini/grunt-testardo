@@ -8,6 +8,8 @@
 
 'use strict';
 
+var debounce = require('lodash.debounce');
+
 module.exports = function(grunt) {
   /**
    * Build the options array
@@ -27,6 +29,11 @@ module.exports = function(grunt) {
   grunt.registerMultiTask('testardo', 'Testing the files with testardo', function() {
     var done = this.async(),
       files = this.filesSrc,
+      fail = debounce(function() {
+        grunt.fail.fatal({
+          message: 'Damn it! Your test failed.. tt looks like there is an error somewhere'
+        });
+      }, 500, false),
       // get the options
       options = buildOptions(this.data.options),
       process;
@@ -53,11 +60,15 @@ module.exports = function(grunt) {
     process = grunt.util.spawn({
       cmd: __dirname + '/../node_modules/.bin/testardo',
       args: options.concat(files)
-    },function(){
+    }, function() {
       done(true);
     });
 
     process.stdout.on('data', function(data) {
+
+      if (!data.length || !/[a-zA-Z]/g.test(data)) {
+        return false;
+      }
       // testardo was not able to trigger the tests
       if (/testardo/gi.test(data)) {
         grunt.log.write(data);
@@ -70,9 +81,7 @@ module.exports = function(grunt) {
     // listen all the testardo errors
     process.stderr.on('data', function(data) {
       grunt.log.errorlns(data);
-      grunt.fail.fatal({
-        message: 'Damn it! It looks like there was an error somewhere'
-      });
+      fail();
     });
   });
 };
