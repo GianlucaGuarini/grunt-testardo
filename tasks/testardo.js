@@ -75,7 +75,7 @@ module.exports = function(grunt) {
         done(false);
       } else {
         grunt.log.subhead('Please connect your device to following url to run the tests:');
-        grunt.log.oklns(String(data).replace(/([a-z]+[0-9]:)/gi, ''));
+        grunt.log.oklns(data);
       }
     });
     // listen all the testardo errors

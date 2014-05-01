@@ -1,7 +1,7 @@
 {
   "name": "grunt-testardo",
   "description": "grunt plugin to test your project using testardo",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "homepage": "https://github.com/gianlucaguarini/grunt-testardo",
   "author": "Gianluca Guarini <gianluca.guarini@gmail.com> (gianlucaguarini.com)",
   "repository": {
@@ -11,10 +11,12 @@
   "bugs": {
     "url": "https://github.com/gianlucaguarini/grunt-testardo/issues"
   },
-  "licenses": [{
-    "type": "MIT",
-    "url": "https://github.com/gianlucaguarini/grunt-testardo/blob/master/LICENSE"
-  }],
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/gianlucaguarini/grunt-testardo/blob/master/LICENSE"
+    }
+  ],
   "engines": {
     "node": ">= 0.8.0"
   },
@@ -24,7 +26,7 @@
   "devDependencies": {
     "grunt-contrib-jshint": "^0.6.5",
     "grunt": "~0.4.2",
-    "testardo": "~0.2.6",
+    "testardo": "^0.3.0",
     "grunt-cli": "~0.1.9",
     "lodash.debounce": "^2.4.1"
   },

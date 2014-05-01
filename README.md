@@ -94,6 +94,10 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 
 ## Release History
 
+### v0.1.1
+ - testardo version update 0.3.0
+ - removed: regex filters on the testardo output messages
+
 ### v0.1.0
  - testardo version update 0.2.6
  - better error messages
